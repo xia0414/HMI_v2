@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>QRCode.qml</file>
+        <file>plugin/ControlBackground.qml</file>
+        <file>plugin/FilledButton.qml</file>
+        <file>plugin/FontIcon.qml</file>
+        <file>plugin/Config.qml</file>
+        <file>plugin/qmldir</file>
+    </qresource>
+</RCC>
