@@ -7,5 +7,8 @@
         <file>plugin/FontIcon.qml</file>
         <file>plugin/Config.qml</file>
         <file>plugin/qmldir</file>
+        <file>plugin/IconButton.qml</file>
+        <file>SwithCard.qml</file>
+        <file>QRCodeCard.qml</file>
     </qresource>
 </RCC>

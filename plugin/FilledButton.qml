@@ -4,9 +4,9 @@ Button {
     property bool disabled: false
     property string contentDescription: ""
     property color normalColor: "#1885E7"
-    property color hoverColor: !Config.isLightTheme() ? Qt.darker(normalColor,1.1) : Qt.lighter(normalColor,1.1)
-    property color disableColor: !Config.isLightTheme() ? Qt.rgba(82/255,82/255,82/255,1) : Qt.rgba(199/255,199/255,199/255,1)
-    property color pressedColor: !Config.isLightTheme() ? Qt.darker(normalColor,1.2) : Qt.lighter(normalColor,1.2)
+    property color hoverColor: !Config.isLightTheme? Qt.darker(normalColor,1.1) : Qt.lighter(normalColor,1.1)
+    property color disableColor: !Config.isLightTheme? Qt.rgba(82/255,82/255,82/255,1) : Qt.rgba(199/255,199/255,199/255,1)
+    property color pressedColor: !Config.isLightTheme? Qt.darker(normalColor,1.2) : Qt.lighter(normalColor,1.2)
     property color textColor: {
         if(0){
             if(!enabled){
@@ -29,9 +29,9 @@ Button {
     verticalPadding: 0
     horizontalPadding:12
     background: ControlBackground{
-        implicitWidth: 30
-        implicitHeight: 30
-        radius: parent.height/2
+        implicitWidth: 120
+        implicitHeight: 60
+        radius: 10
         bottomMargin: enabled ? 2 : 0
         border.width: enabled ? 1 : 0
         border.color: enabled ? Qt.darker(control.normalColor,1.2) : disableColor

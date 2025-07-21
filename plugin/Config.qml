@@ -2,7 +2,8 @@ pragma Singleton
 import QtQuick 2.0
 
 Item {
-    id: theme
+    id:theme
+    property bool  isLightTheme:theme.state === "lightTheme"? true:false
     property real fontScale: 1
     property color backgroundColor: "#F6F6F6"
     property color titleBarColor: "#ECECEC"
@@ -14,25 +15,15 @@ Item {
     property color accentColor: "#1885E7"
     property string themeState: state
 
-    function isLightTheme() {
-        return state === "lightTheme"
+    function setBlackTheme()
+    {
+        theme.state = "blackTheme"
+        themeChanged(theme.state)
     }
-
-    function setTheme(themeName) {
-        if (themeName === "lightTheme" || themeName === "blackTheme") {
-            state = themeName
-            themeChanged(state)
-        } else {
-            console.error("Invalid theme name:", themeName)
-        }
-    }
-
-    function setBlackTheme() {
-        setTheme("blackTheme")
-    }
-
-    function setlightTheme() {
-        setTheme("lightTheme")
+    function setlightTheme()
+    {
+        theme.state = "lightTheme"
+        themeChanged(theme.state)
     }
 
     signal themeChanged(var state)
@@ -47,7 +38,7 @@ Item {
                 cardColor: "#FFFFFF"
                 textColor: "#3C485C"
                 borderColor: "#D4D4D4"
-                btnColor: "#F2F2F2"
+                //btnColor: "#F2F2F2"
                 btnPressedColor: "#E3E3E3"
             }
         },
@@ -58,9 +49,9 @@ Item {
                 backgroundColor: "#2D2D2D"
                 titleBarColor: "#383838"
                 cardColor: "#323846"
-                textColor: "#C5C5C5"
+                textColor: "#FFFFFF"
                 borderColor: "#4D5464"
-                btnColor: "#2D2D2D"
+                //btnColor: "#2D2D2D"
                 btnPressedColor: "#1D1D1D"
             }
         }
@@ -69,16 +60,12 @@ Item {
     transitions: [
         Transition {
             from: "*"; to: "*"
-            ParallelAnimation {
-                NumberAnimation { target: theme; property: "backgroundColor"; duration: 300; easing.type: Easing.InOutQuad }
-                NumberAnimation { target: theme; property: "cardColor"; duration: 300; easing.type: Easing.InOutQuad }
-                NumberAnimation { target: theme; property: "textColor"; duration: 300; easing.type: Easing.InOutQuad }
-                NumberAnimation { target: theme; property: "titleBarColor"; duration: 300; easing.type: Easing.InOutQuad }
-                NumberAnimation { target: theme; property: "borderColor"; duration: 300; easing.type: Easing.InOutQuad }
-                NumberAnimation { target: theme; property: "btnColor"; duration: 300; easing.type: Easing.InOutQuad }
-                //NumberAnimation { target: theme; property: "btnPressedColor"; duration: 300; easing.type: Easing.InOutQuad }
+                PropertyAnimation { target: theme; property: "backgroundColor"; duration: 200}
+                PropertyAnimation { target: theme; property: "cardColor"; duration: 200}
+                PropertyAnimation { target: theme; property: "textColor"; duration: 200}
+                PropertyAnimation { target: theme; property: "titleBarColor"; duration: 200}
+                PropertyAnimation { target: theme; property: "borderColor"; duration: 200 }
             }
-        }
     ]
 
     Component.onCompleted: {

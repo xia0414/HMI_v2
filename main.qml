@@ -21,6 +21,7 @@ ApplicationWindow
             color: Config.accentColor
             Rectangle
             {
+
                 anchors.top: parent.top
                 anchors.bottom: content_rect.top
                 anchors.left: parent.left
@@ -29,29 +30,69 @@ ApplicationWindow
                 anchors.rightMargin: 10
                 anchors.bottomMargin: 5
                 anchors.topMargin: 5
+                height: 25
                 color:"#00000000"
-                Row
-                {
-                    anchors.fill: parent
 
-                    Image {
-                        height: parent.height-5
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.bottomMargin: 3
-                        //anchors.bottomMargin: 3
-                        fillMode: Image.PreserveAspectFit
-                        source: "qrc:/src/img/logo_hici_white.svg"
-
-                    }
-
-                    FontIcon
-                    {
-                        iconSource: IconTypes.GlobalNavButton
-                        anchors.verticalCenter: parent.verticalCenter
-
-                    }
-
+                Image {
+                    height: parent.height-5
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.bottomMargin: 0
+                    //anchors.bottomMargin: 3
+                    fillMode: Image.PreserveAspectFit
+                    source: "qrc:/src/img/logo_hici_white.svg"
                 }
+                Text {
+                    id: timeText
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.rightMargin: 10
+                    font.pixelSize: 24
+                    color:"white"
+                    Component.onCompleted: {
+                         timeText.text = Qt.formatDateTime(new Date(), "yyyy-MM-dd hh:mm:ss")
+                    }
+                    Timer {
+                        interval: 1000
+                        running: true
+                        repeat: true
+                        onTriggered:
+                        {
+                             timeText.text = Qt.formatDateTime(new Date(), "yyyy-MM-dd hh:mm:ss")
+                        }
+                    }
+                }
+                IconButton
+                {
+                    id:singal_btn
+                    anchors.right: timeText.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    iconSize: 25
+                    iconColor: "white"
+                    iconSource:IconTypes.Wifi
+                }
+                IconButton
+                {
+                    id:theme_btn
+                    anchors.right: singal_btn.left
+                    anchors.leftMargin: 10
+                    anchors.verticalCenter: parent.verticalCenter
+                    iconSize: 25
+                    iconColor: "white"
+                    iconSource:Config.isLightTheme? IconTypes.QuietHours:IconTypes.Brightness
+                    onClicked:
+                    {
+                        if(Config.isLightTheme)
+                        {
+                            Config.setBlackTheme()
+                        }
+                        else
+                        {
+                            Config.setlightTheme()
+                        }
+                    }
+                }
+
             }
 
             Rectangle
@@ -65,21 +106,13 @@ ApplicationWindow
                 {
                     anchors.fill: parent
                     spacing: 20
-                    anchors.margins: 20
-                    Rectangle
+                    anchors.margins: 30
+                    SwithCard
                     {
                         Layout.preferredHeight: parent.height
                         Layout.fillWidth: true
-                        radius: 10
-                        border.color: Config.borderColor
-                        border.width: 2
-                        color: Config.cardColor
-                        FilledButton
-                        {
-                            anchors.centerIn: parent
-                            text: "扫码充电"
-                        }
                     }
+
                     Rectangle
                     {
                         Layout.preferredHeight: parent.height
@@ -96,7 +129,7 @@ ApplicationWindow
     }
     Component.onCompleted:
     {
-        //Config.setBlackTheme();
+        Config.setlightTheme()
     }
 
 }
