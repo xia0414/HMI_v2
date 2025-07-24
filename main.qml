@@ -10,6 +10,11 @@ ApplicationWindow
     width: 800
     height: 480
     title: qsTr("HMI_V2")
+    BatteryCharging
+    {
+        z:10
+    }
+
     Rectangle
     {
         anchors.fill:parent
@@ -111,16 +116,13 @@ ApplicationWindow
                     {
                         Layout.preferredHeight: parent.height
                         Layout.fillWidth: true
+                        source:"qrc:/QRCodeCard.qml"
                     }
-
-                    Rectangle
+                    SwithCard
                     {
                         Layout.preferredHeight: parent.height
                         Layout.fillWidth: true
-                        radius: 10
-                        border.color: Config.borderColor
-                        border.width: 2
-                        color: Config.cardColor
+                         source:"qrc:/QRCodeCardB.qml"
                     }
                 }
 

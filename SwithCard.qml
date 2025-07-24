@@ -7,6 +7,7 @@ Rectangle
     property var card_QRCode
     property var card_Charging
     property var card_fee
+    property var source
 
     radius: 10
     border.color: Config.borderColor
@@ -22,7 +23,7 @@ Rectangle
     }
     Component.onCompleted:
     {
-        card_loader.source = "qrc:/QRCodeCard.qml"
+        card_loader.source = source
     }
 
 }

@@ -10,5 +10,8 @@
         <file>plugin/IconButton.qml</file>
         <file>SwithCard.qml</file>
         <file>QRCodeCard.qml</file>
+        <file>ChargState.qml</file>
+        <file>QRCodeCardB.qml</file>
+        <file>BatteryCharging.qml</file>
     </qresource>
 </RCC>

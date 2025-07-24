@@ -4,14 +4,15 @@ import QtQuick.Layouts 1.12
 
 Button {
     display: Button.IconOnly
+    property bool isTranspraent : false;
     property int iconSize: 20
     property int iconSource
     property bool disabled: false
-    property int radius:4
+    property int radius:8
     property string contentDescription: ""
-    property color hoverColor: "#00000050"
-    property color pressedColor:  !Config.isLightTheme? Qt.darker(normalColor,1.1) : Qt.lighter(normalColor,1.1)
-    property color normalColor: "#00000000"
+    property color hoverColor: Config.isLightTheme? Qt.darker(normalColor,1.1) : Qt.lighter(normalColor,1.1)
+    property color pressedColor: Config.isLightTheme? Qt.darker(normalColor,1.2) : Qt.lighter(normalColor,1.2)
+    property color normalColor: isTranspraent ? "#00000000" : Config.accentColor
     property color disableColor: "#00000000"
     property Component iconDelegate: com_icon
     property color color: {

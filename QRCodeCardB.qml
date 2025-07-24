@@ -37,7 +37,7 @@ Item {
 
                 Text {
                     id:text_a
-                    text: "A"
+                    text: "B"
                     color: Config.textColor
                     font.pixelSize: 30
                     anchors.centerIn: parent
@@ -149,8 +149,6 @@ Item {
             }
 
         }
-
-
 
         IconButton
         {

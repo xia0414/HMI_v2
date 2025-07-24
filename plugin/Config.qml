@@ -13,6 +13,7 @@ Item {
     property color btnColor: "#F2F2F2"
     property color btnPressedColor: "#E3E3E3"
     property color accentColor: "#1885E7"
+    property color gray:"#ADADAD"
     property string themeState: state
 
     function setBlackTheme()
