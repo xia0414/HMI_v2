@@ -3,5 +3,6 @@
         <file>src/font/FluentIcons.ttf</file>
         <file>src/img/logo_hici.svg</file>
         <file>src/img/logo_hici_white.svg</file>
+        <file>src/img/charging.svg</file>
     </qresource>
 </RCC>

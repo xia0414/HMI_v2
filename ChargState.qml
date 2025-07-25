@@ -40,7 +40,7 @@ Rectangle
                     anchors.horizontalCenter: rect_1.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    text:"扫码"
+                    text:"插枪"
                     color: Config.accentColor
                 }
 

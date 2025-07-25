@@ -150,8 +150,6 @@ Item {
 
         }
 
-
-
         IconButton
         {
             id:more_btn

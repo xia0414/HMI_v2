@@ -13,5 +13,7 @@
         <file>ChargState.qml</file>
         <file>QRCodeCardB.qml</file>
         <file>BatteryCharging.qml</file>
+        <file>ChargingCard.qml</file>
+        <file>ChargingCardB.qml</file>
     </qresource>
 </RCC>
